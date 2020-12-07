@@ -6,7 +6,7 @@
   "scripts": {
     "start:main": "electron .",
     "start:render": "cd app/renderer/src/main && npm start",
-    "package:mac":"electron-packager . zfele --platform=darwin --arch=x64 --icon=computer.ico --out=./out --asar --app-version=0.0.1 --overwrite --ignore=node_modules"
+    "package:mac": "electron-packager . zfele --platform=darwin --arch=x64 --icon=computer.ico --out=./out --asar --app-version=0.0.1 --overwrite --ignore=node_modules"
   },
   "keywords": [],
   "author": "",
