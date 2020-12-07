@@ -5,6 +5,7 @@ const {desktopCapturer, ipcRenderer} = window.require('electron')
 function getScreenStream() {
     return new Promise((resolve, reject) => {
         desktopCapturer.getSources({types: ['window', 'screen']}).then(async sources => {
+            console.log(sources)//获取的对象如图所示在下面
             for (const source of sources) {
                 try {
                     const stream = await navigator.mediaDevices.getUserMedia({
