@@ -1,0 +1,24 @@
+{
+  "name": "ele",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main/index.js",
+  "scripts": {
+    "start:main": "electron .",
+    "start:render": "cd app/renderer/src/main && npm start",
+    "package:mac":"electron-packager . zfele --platform=darwin --arch=x64 --icon=computer.ico --out=./out --asar --app-version=0.0.1 --overwrite --ignore=node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.0.3",
+    "electron-rebuild": "^2.3.4"
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.2.0",
+    "robotjs": "^0.6.0",
+    "vkey": "^1.0.1",
+    "ws": "^7.4.1"
+  }
+}
