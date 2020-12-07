@@ -79,17 +79,17 @@ window.onmouseup = function (e) {
 //创建一个远程连接
 const pc = new window.RTCPeerConnection({})
 // ele_指令传输
-const dc=pc.createDataChannel('robotchannel',{reliable:false});//允许一定数据的丢失
-dc.onopen=function(){
-    peer.on('robot',function(type,data){//监听robot事件发送数据
-        dc.send(JSON.stringify({type,data}))
+const dc = pc.createDataChannel('robotchannel', {reliable: false});//允许一定数据的丢失
+dc.onopen = function () {
+    peer.on('robot', function (type, data) {//监听robot事件发送数据
+        dc.send(JSON.stringify({type, data}))
     })
 }
-dc.onmessage=function(e){//接收到控制端的消息
-    console.log('message',e)
+dc.onmessage = function (e) {//接收到控制端的消息
+    console.log('message', e)
 }
-dc.onerror=function(e){//防止收到报错的消息
-    console.log('error',e)
+dc.onerror = function (e) {//防止收到报错的消息
+    console.log('error', e)
 }
 
 // ------

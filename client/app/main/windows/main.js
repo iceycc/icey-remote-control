@@ -20,11 +20,11 @@ function create(){
         }
     });
 
-    // if(isDev){
-    //     win.loadURL('http://localhost:3000')
-    // }else{
+    if(isDev){
+        win.loadURL('http://localhost:3000')
+    }else{
         win.loadFile(path.resolve(__dirname,"../../renderer/pages/main/index.html"))
-    // }
+    }
 }
 function send(channel,...args){//接收信息
     win.webContents.send(channel,...args)
