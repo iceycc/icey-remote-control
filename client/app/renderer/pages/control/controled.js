@@ -124,19 +124,20 @@ pc.onaddstream = function (e) {//监听媒体流的增加
 }
 // ICE
 
+
+let candidates = [];
 pc.onicecandidate = function (e) {//触发此事件函数
-    //console.log('candidate',JSON.stringify(e.candidate))
+    console.log('candidate', JSON.stringify(e.candidate))
     if (e.candidate) {//排除candiate为null的情况
         //渲染进程发送'forward'相关的信息
         ipcRenderer.send('forward', 'control-candidate', JSON.stringify(e.candidate))
     }
 
 }
+
 ipcRenderer.on('candidate', (e, candidate) => {//渲染进程'candidate'
     addIceCandidate(candidate)//手动换成自动，触发addIceCandidate函数
 })
-
-let candidates = [];
 
 async function addIceCandidate(candidate) {
     if (candidate) {//可能结果为null

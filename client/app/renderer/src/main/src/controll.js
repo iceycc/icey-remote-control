@@ -55,6 +55,7 @@ async function createAnswer(offer) {
 }
 
 window.createAnswer=createAnswer
+let candidates = [];//缓存的效果
 
 pc.onicecandidate = function (e) {//触发此事件函数
     console.log('candidate-control', JSON.stringify(e.candidate))
@@ -66,7 +67,6 @@ pc.onicecandidate = function (e) {//触发此事件函数
 ipcRenderer.on('candidate', (e, candidate) => {//渲染进程监听'candidate'
     addIceCandidate(candidate)
 })
-let candidates = [];//缓存的效果
 async function addIceCandidate(candidate) {
     if (candidate) {//可能结果为null
         candidates.push(candidate);
